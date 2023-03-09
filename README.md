@@ -11,6 +11,10 @@ A VI on LabVIEW was designed to convert the state space model into a transfer fu
 ## Controller Design Process
 Looking at the root locus of the uncompensated system, we immediately find that we need to add a zero to bend the root locus and cause our closed loop poles to be in the stable region. This would make a PD controller very suitable for the job. However, we needed to add the integral gain due to the lack of the pole at the origin. If the integral part was not added, the compensated system would still face a steady state error.
 
+
+![alt text](https://github.com/AbdelrahmanAbdelgwad/self-balancing-robot-/blob/main/media/pid_design.jpeg)
+
+
 # Control Implementation
 The `LabVIEW LINX Toolkit` was used to interface with the Arduino UNO using serial communication. The interface was designed to read both the accelerometer and gyroscope readings from the MPU6050. The tilt angle was estimated using a complementary filter where both readings were taken into consideration.
 
@@ -28,6 +32,10 @@ The development of this self-balancing robot showed a good result, it's able to 
 
 ## Demo
 Check out a demo of the robot in action: [Video Link](https://youtube.com/shorts/erfIMBBUoqQ?feature=share)
+
+
+![alt text](https://github.com/AbdelrahmanAbdelgwad/self-balancing-robot-/blob/main/media/robot_chassis.jpeg)
+
 
 # Future Work
 - `Full state feedback control`: Use full state feedback control instead of PID control. Full state feedback is a more advanced control technique than PID controller, which could provide more precise control over the robot's movement and allow it to per-form more complex tasks. This approach would need an accurate mathematical model of the system. Also, full state feedback would allow us to regulate the tilt an-gle while also selecting a reference robot linear speed (A Servo System).
