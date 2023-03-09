@@ -6,10 +6,8 @@ The state-space model was developed based on the book [Development of a Self-Bal
  
 
 # Controller Design
-
 ## Controller Desin VI
 A VI on LabVIEW was designed to convert the state space model into a transfer function relating the tilt angle and the motor torque. The same LabView VI was used to figure out the system response using the root locus which was used to design a PID controller. The PID controller was chosen as it provides good performance, it's simple and easy to implement, also it's good to handle the robot's stability. You can find the VI in control_design/PID_design_for_project.vi.
-
 ## Controller Design Process
 Looking at the root locus of the uncompensated system, we immediately find that we need to add a zero to bend the root locus and cause our closed loop poles to be in the stable region. This would make a PD controller very suitable for the job. However, we needed to add the integral gain due to the lack of the pole at the origin. If the integral part was not added, the compensated system would still face a steady state error.
 
@@ -17,10 +15,8 @@ Looking at the root locus of the uncompensated system, we immediately find that 
 The LabVIEW LINX Toolkit was used to interface with the Arduino UNO using serial communication. The interface was designed to read both the accelerometer and gyroscope readings from the MPU6050. The tilt angle was estimated using a complementary filter where both readings were taken into consideration.
 
 # Calibration and Fine-tuning
-
 ## Sensor Calibration
 The MPU-6050 sensor was calibrated to correct for scale offset and shift offset errors. The calibration process was done by measuring the angle in multiple positions to get the offset values of the sensor. In our case, we were tried using a complementary filter which normally solves the problems of gyroscope and accelerometer inaccuracies. However, in our case, the accelerometer readings were so noisy, so they caused the robot to overshoot a lot which causes system failure. Due to this, The most reasonable response we got was using the gyro-scope readings only, but this leads us back to the gyroscope problem. gyroscopes are subject to bias instabilities, in which the initial zero reading of the gyroscope will cause drift over time due to integration of inherent imperfections and noise within the device. This means that it is very dependent on the initial condition.
-
 ## PID tuning
 Once the sensor was calibrated, the PID controller was fine-tuned to achieve good performance for the robot. During the fine-tuning, the robot was tested under different surfaces and so we noticed that friction has a very large impact on the system response. In some cases, we would even need to tune the PID parame-ters all over again. This is somehow expected since we assumed a coefficient of friction of 0.1 when modeling. So our system is not robust when it comes to changing friction.
 
