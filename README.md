@@ -26,6 +26,9 @@ The robot was tested under different conditions and the results showed a very go
 # Conclusion
 The development of this self-balancing robot showed a good result, it's able to maintain its balance and handle small disturbances. The controller design and fine-tuning process were successful, and the robot showed good performance. However, the robot showed some limitations, like the effect of the surface condition on the performance of the controller. 
 
+## Demo
+Check out a demo of the robot in action: [Video Link](https://youtube.com/shorts/tZHbbBprDxs?feature=share)
+
 # Future Work
 - `Full state feedback control`: Use full state feedback control instead of PID control. Full state feedback is a more advanced control technique than PID controller, which could provide more precise control over the robot's movement and allow it to per-form more complex tasks. This approach would need an accurate mathematical model of the system. Also, full state feedback would allow us to regulate the tilt an-gle while also selecting a reference robot linear speed (A Servo System).
 - `Kalman Filter` for Sensor Fusion: Generally, using a Kalman filter improves sensor readings and reduce noise and bias errors. This would improve the robot's perfor-mance by providing it with more accurate and stable estimates of the state, which would allow the control algorithm to make more accurate decisions. Also, it would solve its current dependency on the initial angle condition.
