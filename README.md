@@ -12,7 +12,7 @@ A VI on LabVIEW was designed to convert the state space model into a transfer fu
 Looking at the root locus of the uncompensated system, we immediately find that we need to add a zero to bend the root locus and cause our closed loop poles to be in the stable region. This would make a PD controller very suitable for the job. However, we needed to add the integral gain due to the lack of the pole at the origin. If the integral part was not added, the compensated system would still face a steady state error.
 
 # Control Implementation
-The LabVIEW LINX Toolkit was used to interface with the Arduino UNO using serial communication. The interface was designed to read both the accelerometer and gyroscope readings from the MPU6050. The tilt angle was estimated using a complementary filter where both readings were taken into consideration.
+The `LabVIEW LINX Toolkit` was used to interface with the Arduino UNO using serial communication. The interface was designed to read both the accelerometer and gyroscope readings from the MPU6050. The tilt angle was estimated using a complementary filter where both readings were taken into consideration.
 
 # Calibration and Fine-tuning
 ## Sensor Calibration
@@ -28,7 +28,7 @@ The development of this self-balancing robot showed a good result, it's able to 
 
 # Future Work
 - `Full state feedback control`: Use full state feedback control instead of PID control. Full state feedback is a more advanced control technique than PID controller, which could provide more precise control over the robot's movement and allow it to per-form more complex tasks. This approach would need an accurate mathematical model of the system. Also, full state feedback would allow us to regulate the tilt an-gle while also selecting a reference robot linear speed (A Servo System).
-- Kalman Filter for Sensor Fusion: Generally, using a Kalman filter improves sensor readings and reduce noise and bias errors. This would improve the robot's perfor-mance by providing it with more accurate and stable estimates of the state, which would allow the control algorithm to make more accurate decisions. Also, it would solve its current dependency on the initial angle condition.
+- `Kalman Filter` for Sensor Fusion: Generally, using a Kalman filter improves sensor readings and reduce noise and bias errors. This would improve the robot's perfor-mance by providing it with more accurate and stable estimates of the state, which would allow the control algorithm to make more accurate decisions. Also, it would solve its current dependency on the initial angle condition.
 - Building the code on the `Arduino Compatible Compiler for LabVIEW` instead of using a firmware library such as LINX, allows for the binary code to be uploaded to the on-board flash memory of the target Arduino board. This would enable the mi-crocontroller on the board to execute the code, in a standalone fashion, without the need for a constant communication link with a host computer once the code is up-loaded. This would make the embedded system more autonomous, and thus more suited for field deployment in portable and practical applications, as it eliminates the need for a PC.
-- Improving Robustness: Improving the robot's robustness to external factors such as surface conditions or mass changes (due to various payloads). This would make the robot more widely applicable and able to work under different conditions.
+- Improving `Robustness`: Improving the robot's robustness to external factors such as surface conditions or mass changes (due to various payloads). This would make the robot more widely applicable and able to work under different conditions.
 
